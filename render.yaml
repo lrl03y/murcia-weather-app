@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: murcia-weather-app
+    env: python
+    plan: starter
+    buildCommand: |
+      pip install -r requirements.txt
+      cd frontend
+      npm install
+      npm run build
+      cd ..
+      mkdir -p static templates
+      cp -r frontend/build/static/* static/
+      cp frontend/build/index.html templates/
+    startCommand: python app.py
+    envVars:
+      - key: AEMET_API_KEY
+        fromSecret: AEMET_API_KEY
