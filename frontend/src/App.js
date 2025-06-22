@@ -65,7 +65,7 @@ function App() {
                 }}
               >
                 <span style={{ fontWeight: 'bold', marginRight: '8px' }}>
-                  {ec.periodo ? `Periodo ${ec.periodo}` : 'General'}:
+                  {ec.periodo ? `Periodo - ${ec.periodo}` : 'General'}:
                 </span>
                 <span>{ec.descripcion || 'Sin datos'}</span>
               </li>
