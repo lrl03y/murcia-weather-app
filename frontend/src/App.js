@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+function formateaFecha(fechaISO) {
+  if (!fechaISO) return '';
+  const fecha = new Date(fechaISO);
+  if (isNaN(fecha)) return fechaISO;
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+  const anio = fecha.getFullYear();
+  return `${dia}/${mes}/${anio}`;
+}
+
 function App() {
   const [data, setData] = useState(null);
   const [status, setStatus] = useState("Cargando...");
@@ -38,7 +48,9 @@ function App() {
             margin: '24px auto'
           }}
         >
-          <h3 style={{ textAlign: 'center', marginBottom: '1em' }}>{dia.fecha}</h3>
+          <h3 style={{ textAlign: 'center', marginBottom: '1em' }}>
+            {formateaFecha(dia.fecha)}
+          </h3>
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {dia.estadoCielo?.map((ec, i) => (
               <li
