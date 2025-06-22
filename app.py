@@ -1,9 +1,10 @@
 from flask import Flask, jsonify, render_template
 import requests
+import os
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
-AEMET_API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJscmwwM3lAZ21haWwuY29tIiwianRpIjoiMWQ0MjY2MzEtMzNlNC00ZGM5LWJhNjUtODY2ODBkNGVhZjVmIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3NDk3MTQwNjksInVzZXJJZCI6IjFkNDI2NjMxLTMzZTQtNGRjOS1iYTY1LTg2NjgwZDRlYWY1ZiIsInJvbGUiOiIifQ.ill_c44EcVJZsf3Rb31mErCU34fdw9YcRUB1Hj-1kUk"
+AEMET_API_KEY = os.getenv("AEMET_API_KEY")
 
 @app.route("/api/weather")
 def weather():
