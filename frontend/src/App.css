@@ -36,8 +36,9 @@
     transform: rotate(360deg);
   }
 }
-.App ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+/* filepath: c:\Users\Papi\Documents\GitHub\murcia-weather-app\frontend\src\App.css */
+ul, li {
+  list-style: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
